@@ -26,7 +26,7 @@ func Start(in io.Reader, out io.Writer) {
 
 		program := p.ParseProgram()
 		if len(p.Errors()) != 0 {
-			printParseErrors(out, p.Errors())
+			printParserErrors(out, p.Errors())
 			continue
 		}
 
@@ -49,7 +49,7 @@ const MONKEY_FACE = `            __,__
            '-----'
 `
 
-func printParseErrors(out io.Writer, errors []string) {
+func printParserErrors(out io.Writer, errors []string) {
 	io.WriteString(out, MONKEY_FACE)
 	io.WriteString(out, "Woops! We ran into some monkey business here!\n")
 	io.WriteString(out, " parser errors:\n")
